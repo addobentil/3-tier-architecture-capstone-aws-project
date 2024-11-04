@@ -124,25 +124,35 @@ Now that the Route Tables and Subnets have been created, associate them:
 5. Verify associations under **Explicit subnet associations**.
    ![Route Tables Explicit Subnet Associations Image](./images/RTExpSubAss.png "Route Tables Explicit Subnet Associations Image")
 
-### Step 5: Select the Internet Gateway
+### Step 6: Select the Internet Gateway
 
 1. Go to the **Internet Gateways** tab under **Virtual Private Cloud**.
 
    - Create the Internet gateway with a unique name, and add a tag with a key and value, just like in the previous steps.
+
+   ![Internet Gateway Image](./images/CreateIGW.png "Internet Gateway Image")
 
 2. **Attach the Internet Gateway to the VPC**:
 
    - Search for the VPC created for this project.
    - Select **Attach Internet Gateway**.
 
+   ![Attach Internet Gateway to VPC Image](./images/AttachIGWToVPC.png "Attach Internet Gateway to VPC Image")
+   ![Attach Internet Gateway to VPC Image](./images/AttachIGWToVPC2.png "Attach Internet Gateway to VPC Image")
+
 3. **Add Route Tables to the Internet Gateway**:
 
    - Navigate back to the **Route Tables** tab under **Virtual Private Cloud**.
    - Select the **public-web-route-table**, then go to the **Routes** tab and choose **Edit Routes**.
 
+   ![Edit Route Tables Image](./images/EditRouteTables.png "Edit Route Tables Image")
+
 4. **Add Route for All Traffic**:
+
    - Add a route to allow all traffic to the destination and target the Internet Gateway.
    - Click **Save Changes**.
+
+   ![Edit IGW Route Image](./images/EditIGWRoute.png "Edit IGW Route Image")
 
 ---
 
@@ -150,18 +160,28 @@ Now that the Route Tables and Subnets have been created, associate them:
 
 1. Go to the **NAT Gateways** tab under **Virtual Private Cloud** and select **Create NAT Gateway**.
 
-   - Choose the **web-tier-public-subnet** for the NAT Gateway.
-   - Create a unique name for the NAT gateway.
-   - Select one of the **web-tier-public-subnets**.
-   - Leave **Connectivity Type** set to **Public**.
-   - Choose **Allocate Elastic IP** and create the NAT Gateway.
+![Create Nat Gateway Image](./images/CreateNGW.png "Create Nat Gateway Image")
 
-   > **Note**: Elastic IPs allow the NAT gateway to retain the same IP address in case of events like stopping or restarting an instance.
+- Choose the **web-tier-public-subnet** for the NAT Gateway.
+- Create a unique name for the NAT gateway.
+- Select one of the **web-tier-public-subnets**.
+- Leave **Connectivity Type** set to **Public**.
+- Choose **Allocate Elastic IP** and create the NAT Gateway.
+
+> **Note**: Elastic IPs allow the NAT gateway to retain the same IP address in case of events like stopping or restarting an instance.
+
+![Create Nat Gateway Image](./images/CreateNGW1.png "Create Nat Gateway Image")
 
 2. **Add Route Tables to the NAT Gateway**:
+
    - Go back to the **Route Tables** tab under **Virtual Private Cloud**.
    - Select the **private app-tier-route-table**, then go to the **Routes** tab and select **Edit Routes**.
+
+   ![Add RTables to the NAT Gateway Image](./images/EditRouteTablesApp.png "Create Nat Gateway Image")
+
    - Add a route to allow traffic and set the **Target** to the NAT Gateway you just created. Save the changes.
+
+   ![Edit NAT Gateway route Image](./images/EditRouteNGW.png "Edit NAT Gateway route Image")
 
 ---
 
