@@ -84,23 +84,45 @@ All 6 subnets have been created.
 
 1. Navigate to the **Route Tables** tab under **Virtual Private Cloud** and select **Create Route Tables**.
 
-![Route Tables Creation Image](./images/CreateRouteTables.png "Route Tables Creation Image")
+   ![Route Tables Creation Image](./images/CreateRouteTables.png "Route Tables Creation Image")
 
 2. Create a **Route Table for the web-tier**:
+
    - Give the route table a unique name for this tier.
    - Select the VPC created for this project for your route table.
+
+   ![Route Tables Creation Image](./images/CreateRouteTable1.png "Route Tables Creation Image")
+
    - Add a Tag for the route table.
+
+   ![Route Tables Creation Image](./images/CreateRouteTable2.png "Route Tables Creation Image")
+
 3. Repeat the process to create route tables for **app-tier** and **db-tier**.
+
+   ![All Route Tables Creation Image](./images/AllRouteTables.png "All Route Tables Creation Image")
 
 ## Step 5: Associate the Route Tables with Subnets
 
 Now that the Route Tables and Subnets have been created, associate them:
 
 1. Select the **web-tier route table**, go to **Subnet associations**, and select **Edit subnet associations**.
+
+   ![Public Route Table Subnet Association Image](./images/PublicRTSubnetAss.png "Public Route Table Subnet Association Image")
+
 2. Select the two **web-tier subnets** and associate them with the web-tier route table, then click **Save associations**.
+
+   ![Web-Tier Public Subnet Association Image](./images/WTPublicSubnetAss.png "Web-Tier Public Subnet Association Image")
+
 3. Next, select the **app-tier route table**, go to **Subnet associations**, and select **Edit subnet associations**. Select the two **app-tier subnets** and save.
+
+   ![App-Tier Public Subnet Association Image](./images/ATPrivateSubnetAss.png "App-Tier Public Subnet Association Image")
+
 4. Finally, select the **db-tier route table**, go to **Subnet associations**, and associate the **db-tier subnets**.
+
+   ![DB-Tier Private Subnet Association Image](./images/DTPrivateSubnetAss.png "DB-Tier Private Subnet Association Image")
+
 5. Verify associations under **Explicit subnet associations**.
+   ![Route Tables Explicit Subnet Associations Image](./images/RTExpSubAss.png "Route Tables Explicit Subnet Associations Image")
 
 ### Step 5: Select the Internet Gateway
 
