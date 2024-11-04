@@ -51,19 +51,41 @@ It’s crucial to create a diagram illustrating the structure of your 3-tier arc
 
 1. Navigate to the **Subnets** tab under **Virtual Private Cloud**.
 2. Select **Subnet** and click **Create Subnet**.
+
+![Subnet Creation Image](./images/CreateSubnets.png "Subnet Creation Image")
+
 3. Select your **VPC ID** under the VPC tab.
+
+![Subnet Creation Image](./images/CreateSubnetVPCID.png "Subnet Creation Image")
+
 4. Create 2 **Public Subnets** within your chosen **Virtual Private Cloud (VPC)**:
    - Create a **Subnet name**
    - Select the **Availability Zone** for your Subnet
    - Set the **IPv4 CIDR block address** for your Subnet
    - Create a **Tag** with a Key and Value.
+
+![Subnet Creation Image](./images/CreateSubnet1.png "Subnet Creation Image")
+
 5. Instead of clicking **Create Subnet**, click on **Add new subnet** to create additional subnets.
 
+![Create New Subnet Image](./images/AddNewSubnet.png "Create New Subnet Image")
+
+![Subnet Creation Image](./images/CreateSubnet2.png "Subnet Creation Image")
+
+![Subnet Creation Image](./images/CreateSubnet3.png "Subnet Creation Image")
+
+![Subnet Creation Image](./images/CreateSubnet6.png "Subnet Creation Image")
+
 All 6 subnets have been created.
+
+![All Subnets Creation Image](./images/AllSubnets.png "All Subnets Creation Image")
 
 ## Step 4: Set Up the Route Tables
 
 1. Navigate to the **Route Tables** tab under **Virtual Private Cloud** and select **Create Route Tables**.
+
+![Route Tables Creation Image](./images/CreateRouteTables.png "Route Tables Creation Image")
+
 2. Create a **Route Table for the web-tier**:
    - Give the route table a unique name for this tier.
    - Select the VPC created for this project for your route table.
