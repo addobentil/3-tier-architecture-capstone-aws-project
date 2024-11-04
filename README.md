@@ -195,33 +195,51 @@ Now, let’s proceed with provisioning the servers.
 
 1. Go to the **EC2 Dashboard** and select the **Launch Templates** tab.
 
-   - Name the Launch Template, add a **Template Version Description**, and create a **Template Tag**.
+![Launch Templates Image](./images/LaunchTemplates.png "Launch Templates Image")
+
+- Name the Launch Template, add a **Template Version Description**, and create a **Template Tag**.
+
+![Create Launch Templates Image](./images/CreateLaunchTemplate.png "Create Launch Templates Image")
 
 2. **Select AMI and Instance Type**:
 
    - Choose the **Amazon Linux AMI** and **t2.micro** instance type from the **Browse more** tab.
 
+   ![AMI Image](./images/AmazonLinuxAMI.png "AMI Image")
+   ![Instance Type Image](./images/InstanceType.png "Instance Type Image")
+
 3. **Create or Select a Key Pair**:
 
    - Use a Key Pair created specifically for this project.
+
+   ![Key Pair Image](./images/KeyPair.png "Key Pair Image")
 
 4. **Network Settings**:
 
    - Omit the subnet for this template in this project.
    - Create a new Security Group named **three-tier-web-server-sg** with the following:
+
      - **Description**: three-tier-web-server-sg
      - Select the VPC created for this project.
+
+     ![Web Tier Network Settings Image](./images/WebTierSecurityGroup.png "Web Tier Network Settings Image")
 
 5. **Configure Inbound Security Group Rules**:
 
    - Add a rule of type **SSH** with a **Source** of `0.0.0.0/0`.
    - Add a rule of type **HTTP** with a **Source** of `0.0.0.0/0`.
 
+   ![Inbound Security Group Rules Image](./images/InboundSecurityGroupRules.png "Inbound Security Group Rules Image")
+
 6. Go to the **Advanced Details** tab and add your launch script in the **User Data** field.
+
+![User Data Image](./images/WebTierAdvancedDetails.png "User Data Image")
 
 **Configure User Data**
 
 In this step, add a launch script to automate the installation and setup of a simple web server. In the **Advanced Details** section, locate the **User Data** field and paste the following script:
+
+![Launch Script Image](./images/LaunchScript.png "Launch Script Image")
 
 ```bash
 #!/bin/bash
@@ -262,11 +280,18 @@ echo "<!DOCTYPE html>
 
 7. Review the summary, then select **Create Launch Template**.
 
+![Launch Template Summary Image](./images/LaunchTemplateSummary.png "Launch Template Summary Image")
+
+![Launch Template Success Image](./images/LaunchTemplateSuccess.png "Launch Template Success Image")
+
 ---
 
 ### Create an Auto Scaling Group
 
 1. In **Actions**, select **Create Auto Scaling Group** after choosing the template.
+
+![Auto Scaling Groups Image](./images/LaunchTemplateSuccess.png "Auto Scaling Groups Image")
+
 2. Name your Auto Scaling Group and select the Launch Template you just created.
 3. Choose the VPC and the two public web tier subnets.
 4. Set the **Desired Capacity** to 2, with a minimum of 2 instances and a maximum of 2 instances.
