@@ -364,29 +364,51 @@ After the Auto Scaling Group updates to the desired state, verify that your web 
    - Set the **Source** to the **3-tier-web-server-sg** security group.
    - _Note_: The application tier should only be accessible from the web tier.
 
+   ![Inbound Security Group Rules Image](./images/AppTierInboundSGRules.png "Inbound Security Group Rules Image")
+
 6. **Create Launch Template**:
 
    - Review the template summary and select **Create launch template**.
+
+   ![Create launch template Image](./images/AppTierSummary.png "Create launch template Image")
 
 7. **Auto Scaling Group Setup**:
 
    - Go to the **EC2 Auto Scaling** dashboard.
    - Select **Create Auto Scaling Group** and enter a name for the group.
+
+   ![App Tier Security Groups Image](./images/AppTierSG.png "App Tier Security Groups Image")
+
    - Choose the launch template created earlier and click **Next**.
+
+   ![App Tier Launch Template Image](./images/AppTierLaunchTemplate.png "App Tier Launch Template Image")
 
 8. **VPC and Availability Zones**:
 
    - Select the appropriate VPC and availability zones for the app tier, then proceed to the next step.
 
+   ![App Tier Launch Template Network Image](./images/AppTierLaunchNetwork.png "App Tier Launch Template Network Image")
+
 9. **Group Size Desired State**:
 
    - Set the desired capacity with a **minimum of 2 instances** and a **maximum of 2 instances**.
+
+   ![Configure Group Size Image](./images/ConfigureGroupSize.png "Configure Group Size Image")
+   ![Configure Group Size Image](./images/ConfigureGroupSize2.png "Configure Group Size Image")
+
    - Skip the advanced options, review the configuration, and create the auto scaling group.
+
+   ![Create Auto Scaling Groups Image](./images/CreateASGs.png "Create Auto Scaling Groups Image")
 
 10. **Verify Instance Status**:
 
 - Confirm that two instances are running in the web tier and two in the app tier.
+
+![Running Instances Image](./images/CreatedInstances.png "Running Instances Image")
+
 - _Optional_: Label each instance to clearly indicate its tier and subnet.
+
+![Running Instances Image](./images/CreatedInstancesLabelled.png "Running Instances Image")
 
 11. **Ping the App Tier from the Web Tier**:
 
@@ -399,9 +421,15 @@ After the Auto Scaling Group updates to the desired state, verify that your web 
   ```
 - Copy the SSH connection example provided on the AWS console and paste it into your terminal.
 - After connecting to the instance, ping the private IP address of the app tier’s subnet:
+
   ```bash
   ping <app-tier-private-IP>
   ```
+
+  ![Private IPV4 Image](./images/PrivateIPV4.png "Private IPV4 Image")
+
+  ![Ping Private IPV4 Image](./images/PingPrivateIPV4.png "Ping Private IPV4 Image")
+
 - Press **Ctrl + C** to stop the ping.
 
 12. **SSH into the App Tier**:
@@ -412,6 +440,8 @@ After the Auto Scaling Group updates to the desired state, verify that your web 
   chmod 400 yourkeypair.pem
   ```
 - SSH from the web tier to the app tier using the private IP of the app tier instance.
+
+![SSHing into the App Tier Image](./images/JumpServer.png "SSHing into the App Tier Image")
 
 13. **Install MySQL on the App Tier**:
 
@@ -430,12 +460,16 @@ Before proceeding to set up the Database Tier, ensure your application environme
 sudo yum update -y
 ```
 
+![Update Environment Image](./images/MysqlUpdate.png "Update Environment Image")
+
 2. **Install MySQL**:
 
 ```bash
 sudo yum install mysql -y
 
 ```
+
+![Install mysql Image](./images/MysqlInstall.png "Install mysql Image")
 
 ## Step 10: Set Up the Database Tier
 
@@ -444,10 +478,15 @@ sudo yum install mysql -y
 - Go to the **RDS Database** dashboard in the AWS Management Console.
 - Select **Create database** to start configuring the database.
 
+![Create Database Image](./images/CreateRDS.png "Create Database Image")
+
 ### 2. Database Creation Method
 
 - Choose the **Standard create** method.
+  ![Standard create Image](./images/RDSStandardOption.png "Standard create Image")
+
 - Select **MySQL** as the database engine.
+  ![Database Engine Image](./images/RDSEngine.png "Database Engine Image")
 
 ### 3. Free Tier Selection
 
