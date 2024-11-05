@@ -290,18 +290,36 @@ echo "<!DOCTYPE html>
 
 1. In **Actions**, select **Create Auto Scaling Group** after choosing the template.
 
-![Auto Scaling Groups Image](./images/LaunchTemplateSuccess.png "Auto Scaling Groups Image")
+![Auto Scaling Groups Image](./images/AutoScalingGroup.png "Auto Scaling Groups Image")
 
 2. Name your Auto Scaling Group and select the Launch Template you just created.
+
+![Auto Scaling Groups Image](./images/ChooseWebTemplate.png "Auto Scaling Groups Image")
+
 3. Choose the VPC and the two public web tier subnets.
+
+![Auto Scaling Groups Image](./images/ChooseLaunchTemplate3.png "Auto Scaling Groups Image")
+
 4. Set the **Desired Capacity** to 2, with a minimum of 2 instances and a maximum of 2 instances.
+
+![Configure Group Size Image](./images/ConfigureGroupSize.png "Configure Group Size Image")
+![Configure Group Size Image](./images/ConfigureGroupSize2.png "Configure Group Size Image")
+
 5. Keep the remaining settings as default, then review and create the Auto Scaling Group.
+
+![Create Auto Scaling Group Image](./images/CreateASGs.png "Create Auto Scaling Group Image")
+
+![Auto Scaling Group Image](./images/ASGs.png "Auto Scaling Group Image")
 
 ---
 
 ### Verify Accessibility
 
 After the Auto Scaling Group updates to the desired state, verify that your web servers are accessible by selecting the **Public IPv4 Address** of an instance. Open the address in a new browser tab to confirm.
+
+![Public IPV4 Address Image](./images/PublicIp.png "Public IPV4 Address Image")
+
+![Webpage Image](./images/WebPage.png "Webpage Image")
 
 ---
 
@@ -314,14 +332,20 @@ After the Auto Scaling Group updates to the desired state, verify that your web 
    - Open the **Launch Templates** tab.
    - **Name the Launch Template**, add a **Template version description**, and create a **Template tag**.
 
+   ![App Server Launch Template Image](./images/AppServerLaunchTemplate.png "App Server Launch Template Image")
+
 2. **Select AMI and Instance Type**:
 
    - Click on **Browse more** to select an AMI.
    - For this setup, use **Amazon Linux AMI** with the **t2.micro** instance type.
 
+   ![App Server Launch Template Image](./images/InstanceType.png "App Server Launch Template Image")
+
 3. **Key Pair Selection**:
 
    - Choose the same key pair used for the web tier instance.
+
+   ![App Server Launch Template Image](./images/KeyPair.png "App Server Launch Template Image")
 
 4. **Network Settings**:
 
@@ -330,6 +354,8 @@ After the Auto Scaling Group updates to the desired state, verify that your web 
    - Set the security group name as `three-tier-app-sg`.
    - Enter **Apache app sg** as the description.
    - Choose the VPC created for this project.
+
+   ![App Server Network Settings Image](./images/AppTierNetworkSettings.png "App Server Network Settings Image")
 
 5. **Inbound Security Group Rules**:
 
