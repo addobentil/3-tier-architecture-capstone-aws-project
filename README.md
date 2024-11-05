@@ -546,6 +546,7 @@ sudo yum install mysql -y
   ```
 
 - Replace `<endpoint>` with the actual endpoint of your RDS instance.
+
   ![Mysql Terminal connect Image](./images/MysqlTerminal.png "Mysql Terminal connect Image")
 
 **Success!!!** You have successfully set up and connected to your MySQL database in the database tier.
