@@ -492,33 +492,49 @@ sudo yum install mysql -y
 
 - Choose the **Free tier** template to stay within the free tier limits (or select a different option if required).
 
+![Database Template Image](./images/RDSTemplates.png "Database Template Image")
+
 ### 4. Database Details
 
 - Enter a unique **DB instance identifier**, such as `database-tier`.
 - Create an **8-digit password** for the database administrator account.
 
+![Database Settings Image](./images/DBSettings.png "Database Settings Image")
+![Database Settings Image](./images/DBSettings1.png "Database Settings Image")
+
 ### 5. Connectivity Configuration
 
 - Select the **VPC** created for this project to host the database.
+  ![Database Connectivity Image](./images/DBConnectivity.png "Database Connectivity Image")
 - **DB Subnet Group**:
   - Create a DB subnet group to define where your RDS instances will be deployed.
+    ![Database Subnet Group Image](./images/DBSubnetGroup.png "Database Subnet Group Image")
 - **Security Group**:
   - Create a new security group named `three-tier-db-sg` to control access to the database.
+    ![Database Subnet Group Image](./images/DBSubnetGroup1.png "Database Subnet Group Image")
+- **Review Configuration**:
+  - Review the configuration then click **Create Database**.
+    ![Database Create Image](./images/DBCreate.png "Database Create Image")
 
 ### 6. Subnet Group Configuration
 
 - Go to the **Subnet groups** tab on the RDS dashboard.
+  ![Database Create Subnet Group Image](./images/CreateDBSubnetGroup.png "Database Create Subnet Group Image")
 - Create a new **DB subnet group** by providing:
   - A **name** for the group.
   - A **description**.
   - Select the VPC configured for this project.
+    ![Database Create Subnet Group Image](./images/CreateDBSubnetGroup1.png "Database Create Subnet Group Image")
 - Choose appropriate **Availability Zones** and **Subnets** for redundancy and availability in the database tier.
+  ![Database Create Subnet Group Image](./images/CreateDBSubnetGroup2.png "Database Create Subnet Group Image")
+  ![Database Create Subnet Group Image](./images/CreateDBSubnetGroup3.png "Database Create Subnet Group Image")
 
 ### 7. Inbound Security Group Rules for DB
 
 - Go to the **three-tier-db-sg** security group settings.
 - Add an inbound rule to allow **MySQL** traffic (TCP on port 3306).
 - Set the **Source** to be the **app tier’s security group** (`three-tier-app-sg`), enabling access only from the application tier.
+  ![Database security group settings Image](./images/DBSecurityGroup.png "Database security group settings Image")
 
 ### 8. Connect to the MySQL Database
 
@@ -530,12 +546,17 @@ sudo yum install mysql -y
   ```
 
 - Replace `<endpoint>` with the actual endpoint of your RDS instance.
+  ![Mysql Terminal connect Image](./images/MysqlTerminal.png "Mysql Terminal connect Image")
 
 **Success!!!** You have successfully set up and connected to your MySQL database in the database tier.
 
-```
+## Conclusion
 
-```
+In this capstone project, we addressed the infrastructure challenges facing **ShopEase** by designing a robust **3-tier architecture on AWS**. By separating the **presentation**, **application**, and **data layers**, this solution significantly improves the scalability, reliability, and security of ShopEase’s platform.
+
+This architecture mitigates the issues of slow load times and outages, ensuring a seamless and responsive experience for customers, even during peak traffic. With this scalable AWS solution, ShopEase is well-positioned to handle future growth, minimizing disruptions and maximizing customer satisfaction.
+
+Thank you for exploring this solution. Here’s to a faster, more reliable ShopEase experience!
 
 ```
 
